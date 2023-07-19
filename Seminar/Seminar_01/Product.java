@@ -51,8 +51,13 @@ public abstract class Product {
 
   @Override
   public String toString() {
-    return "PRODUCT\n" + "name: " + name + "\nprice: " + price + "\nquantity: " + quantity + "\nbestBefore: "
-        + bestBefore.get(GregorianCalendar.YEAR) + "/" + bestBefore.get(GregorianCalendar.MONTH) + "/" + bestBefore.get(GregorianCalendar.DATE) + "\n";
+    return "PRODUCT"
+        + "\nname: " + getName()
+        + "\nprice: " + getPrice()
+        + "\nquantity: " + getQuantity()
+        + "\nbestBefore: " + getBestBefore().get(GregorianCalendar.YEAR) + "/"
+        + getBestBefore().get(GregorianCalendar.MONTH) + "/"
+        + getBestBefore().get(GregorianCalendar.DATE) + "\n";
   }
 
 }

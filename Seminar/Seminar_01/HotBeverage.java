@@ -12,19 +12,24 @@ public class HotBeverage extends Beverage {
         this.temperature = temperature;
     }
 
-    private int getTemperature() {
+    int getTemperature() {
         return temperature;
     }
 
-    private void setTemperature() {
+    private void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 
     @Override
     public String toString() {
-        return "PRODUCT\n" + "name: " + getName() + "\nvolume: " + getVolume() +  "\ntemperature: " + temperature + "\nprice: " + getPrice() + "\nquantity: "
-                + getQuantity() + "\nbestBefore: "
-                + getBestBefore().get(GregorianCalendar.YEAR) + "/" + getBestBefore().get(GregorianCalendar.MONTH) + "/"
+        return "PRODUCT"
+                + "\nname: " + getName()
+                + "\nvolume: " + getVolume()
+                + "\ntemperature: " + getTemperature()
+                + "\nprice: " + getPrice()
+                + "\nquantity: " + getQuantity()
+                + "\nbestBefore: " + getBestBefore().get(GregorianCalendar.YEAR) + "/"
+                + getBestBefore().get(GregorianCalendar.MONTH) + "/"
                 + getBestBefore().get(GregorianCalendar.DATE) + "\n";
     }
 }

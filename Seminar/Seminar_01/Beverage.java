@@ -21,7 +21,13 @@ public class Beverage extends Product {
 
   @Override
   public String toString() {
-    return "PRODUCT\n" + "name: " + getName() + "\nvolume: " + volume + "\nprice: " + getPrice() + "\nquantity: " + getQuantity() + "\nbestBefore: "
-        + getBestBefore().get(GregorianCalendar.YEAR) + "/" + getBestBefore().get(GregorianCalendar.MONTH) + "/" + getBestBefore().get(GregorianCalendar.DATE) + "\n";
+    return "PRODUCT"
+        + "\nname: " + getName()
+        + "\nvolume: " + getVolume()
+        + "\nprice: " + getPrice()
+        + "\nquantity: " + getQuantity()
+        + "\nbestBefore: " + getBestBefore().get(GregorianCalendar.YEAR) + "/"
+        + getBestBefore().get(GregorianCalendar.MONTH) + "/"
+        + getBestBefore().get(GregorianCalendar.DATE) + "\n";
   }
 }

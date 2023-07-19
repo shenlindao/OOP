@@ -1,6 +1,5 @@
 package Seminar.Seminar_01;
 
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 public class Food extends Product {
@@ -22,7 +21,13 @@ public class Food extends Product {
 
   @Override
   public String toString() {
-    return "PRODUCT\n" + "name: " + getName() + "\nweight: " + weight + "\nprice: " + getPrice() + "\nquantity: " + getQuantity() + "\nbestBefore: "
-        + getBestBefore().get(GregorianCalendar.YEAR) + "/" + getBestBefore().get(GregorianCalendar.MONTH) + "/" + getBestBefore().get(GregorianCalendar.DATE) + "\n";
+    return "PRODUCT"
+        + "\nname: " + getName()
+        + "\nweight: " + getWeight()
+        + "\nprice: " + getPrice()
+        + "\nquantity: " + getQuantity()
+        + "\nbestBefore: " + getBestBefore().get(GregorianCalendar.YEAR) + "/"
+        + getBestBefore().get(GregorianCalendar.MONTH) + "/"
+        + getBestBefore().get(GregorianCalendar.DATE) + "\n";
   }
 }
