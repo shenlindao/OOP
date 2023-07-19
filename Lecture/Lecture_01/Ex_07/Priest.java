@@ -1,5 +1,5 @@
-package Lesson_07.Ex007;
- 
+package Lecture.Lecture_01.Ex_07;
+
 public class Priest extends BaseHero {
 
     private int elixir;

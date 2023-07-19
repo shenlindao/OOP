@@ -1,5 +1,4 @@
-package Lesson_07.Ex003;
-
+package Lecture.Lecture_01.Ex_03;
 
 /** 
  * Это точка 2D

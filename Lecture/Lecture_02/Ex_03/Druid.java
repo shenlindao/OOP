@@ -1,4 +1,5 @@
-package Lesson_08.Ex003;
+package Lecture.Lecture_02.Ex_03;
+
 
 public class Druid extends BaseHero {
     private int harmony;

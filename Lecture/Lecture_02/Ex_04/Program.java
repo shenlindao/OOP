@@ -1,5 +1,4 @@
-package Lesson_08.Ex004;
-
+package Lecture.Lecture_02.Ex_04;
 public class Program {
     public static void main(String[] args) {
         // Иерархия вызова конструкторов

@@ -1,11 +1,28 @@
-package Seminar.Seminar1;
+package Seminar.Seminar_01;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Food extends Product {
 
-  public Food(String name, int price, int quantity, Calendar bestBefore) {
+  private double weight;
+
+  public Food(String name, double weight, int price, int quantity, GregorianCalendar bestBefore) {
     super(name, price, quantity, bestBefore);
+    this.weight = weight;
   }
 
+  public double getWeight() {
+    return weight;
+  }
+
+  public void setWeight(double weight) {
+    this.weight = weight;
+  }
+
+  @Override
+  public String toString() {
+    return "PRODUCT\n" + "name: " + getName() + "\nweight: " + weight + "\nprice: " + getPrice() + "\nquantity: " + getQuantity() + "\nbestBefore: "
+        + getBestBefore().get(GregorianCalendar.YEAR) + "/" + getBestBefore().get(GregorianCalendar.MONTH) + "/" + getBestBefore().get(GregorianCalendar.DATE) + "\n";
+  }
 }

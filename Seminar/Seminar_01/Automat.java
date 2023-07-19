@@ -1,7 +1,7 @@
 // Реализуйте класс Товар, содержащий данные о товаре, и ТорговыйАвтомат,
 // содержащий в себе методы initProducts (List <Product>) сохраняющий в себе список исходных продуктов и getProduct(String name)
 
-package Seminar.Seminar1;
+package Seminar.Seminar_01;
 
 import java.util.ArrayList;
 import java.util.List;

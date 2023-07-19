@@ -1,17 +1,16 @@
-package Seminar.Seminar1;
+package Seminar.Seminar_01;
 
-import java.time.Year;
-import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public abstract class Product {
 
   private String name;
   private int price;
   private int quantity;
-  private Calendar bestBefore;
+  private GregorianCalendar bestBefore;
   // int [] storage;
 
-  public Product(String name, int price, int quantity, Calendar bestBefore) {
+  public Product(String name, int price, int quantity, GregorianCalendar bestBefore) {
     this.name = name;
     this.price = price;
     this.quantity = quantity;
@@ -30,7 +29,7 @@ public abstract class Product {
     return quantity;
   }
 
-  public Calendar getBestBefore() {
+  public GregorianCalendar getBestBefore() {
     return bestBefore;
   }
 
@@ -46,14 +45,14 @@ public abstract class Product {
     this.quantity = quantity;
   }
 
-  public void setBestBefore(Calendar bestBefore) {
+  public void setBestBefore(GregorianCalendar bestBefore) {
     this.bestBefore = bestBefore;
   }
 
   @Override
   public String toString() {
-    return "Product [name=" + name + ", price=" + price + ", quantity=" + quantity + ", bestBefore="
-        + bestBefore.get(Calendar.YEAR) + "/" + bestBefore.get(Calendar.MONTH) + "]";
+    return "PRODUCT\n" + "name: " + name + "\nprice: " + price + "\nquantity: " + quantity + "\nbestBefore: "
+        + bestBefore.get(GregorianCalendar.YEAR) + "/" + bestBefore.get(GregorianCalendar.MONTH) + "/" + bestBefore.get(GregorianCalendar.DATE) + "\n";
   }
 
 }
