@@ -12,11 +12,11 @@ public class HotBeverage extends Beverage {
         this.temperature = temperature;
     }
 
-    int getTemperature() {
+    protected int getTemperature() {
         return temperature;
     }
 
-    private void setTemperature(int temperature) {
+    protected void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 
