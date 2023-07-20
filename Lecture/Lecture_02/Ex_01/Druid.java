@@ -21,4 +21,9 @@ public class Druid extends BaseHero {
             target.healed(heal);
         }
     }
+
+    @Override
+    public void die() {
+        
+    }
 }

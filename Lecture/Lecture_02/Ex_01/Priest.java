@@ -20,4 +20,9 @@ public class Priest extends BaseHero {
         int damage = BaseHero.r.nextInt(10, 20);
         target.GetDamage(damage);
     }
+
+    @Override
+    public void die() {
+        
+    }
 }
