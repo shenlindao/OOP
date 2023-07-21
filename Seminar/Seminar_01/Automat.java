@@ -6,6 +6,8 @@ package Seminar.Seminar_01;
 import java.util.ArrayList;
 import java.util.List;
 
+import Seminar.Seminar_02.Ex_02.Order;
+
 public class Automat {
 
   List<Product> listProduct = new ArrayList<>();
@@ -21,7 +23,9 @@ public class Automat {
       }
     }
     return null;
-
   }
 
+  public Order createOrder(List<Product> myList) {
+    return null;
+  }
 }
