@@ -1,22 +1,24 @@
 package Seminar.Seminar_01;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class HotBeverageAutomat extends Automat {
 
-    List<HotBeverage> listHotBeverage = new ArrayList<>();
-
-    public void initHotBeverage(List<HotBeverage> myHotList) {
-        listHotBeverage = myHotList;
+    public HotBeverageAutomat() {
+        super();
     }
 
-    public HotBeverage getProduct(String name, double volume, int temperature) {
-        for (HotBeverage el : listHotBeverage) {
-            if ((el.getName().equals(name))
-                    && (el.getVolume() == volume)
-                    && (el.getTemperature() == temperature)) {
-                return el;
+    @Override
+    public void initProduct(List<Product> myList) {
+        super.initProduct(myList);
+    }
+
+    public HotBeverage getProduct(String name, double volume, Integer temperature) {
+        for (Product el : listProduct) {
+            if (el instanceof Product & el.getName().equals(name)
+                    && ((HotBeverage) el).getTemperature() == temperature
+                    && ((HotBeverage) el).getVolume() == volume) {
+                return (HotBeverage) el;
             }
         }
         return null;

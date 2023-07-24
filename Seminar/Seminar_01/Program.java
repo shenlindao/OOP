@@ -13,23 +13,19 @@ public class Program {
     Product product3 = new Food("Snicers", 2.5, 60, 15, new GregorianCalendar(2023, 10, 29, 0, 0));
     Product product4 = new Beverage("Coca-Cola", 0.3, 100, 9, new GregorianCalendar(2023, 11, 05, 0, 0));
     Product product5 = new Beverage("Fanta", 0.5, 110, 5, new GregorianCalendar(2023, 12, 07, 0, 0));
-    HotBeverage product6 = new HotBeverage("Coffee", 0.4, 90, 200, 20, new GregorianCalendar(2023, 8, 01, 0, 0));
-    HotBeverage product7 = new HotBeverage("Tea", 1.2, 85, 500, 1, new GregorianCalendar(2023, 8, 01, 0, 0));
+    Product product6 = new HotBeverage("Coffee", 0.4, 90, 200, 20, new GregorianCalendar(2023, 8, 01, 0, 0));
+    Product product7 = new HotBeverage("Tea", 1.2, 85, 500, 1, new GregorianCalendar(2023, 8, 01, 0, 0));
 
-    Automat list = new Automat();
+    HotBeverageAutomat list = new HotBeverageAutomat();
     List<Product> myList = new ArrayList<>();
     myList.add(product1);
     myList.add(product2);
     myList.add(product3);
     myList.add(product4);
     myList.add(product5);
+    myList.add(product6);
+    myList.add(product7);
     list.initProduct(myList);
-
-    HotBeverageAutomat hotList = new HotBeverageAutomat();
-    List<HotBeverage> myHotList = new ArrayList<>();
-    myHotList.add(product6);
-    myHotList.add(product7);
-    hotList.initHotBeverage(myHotList);
 
     String name;
     double volume;
@@ -50,12 +46,12 @@ public class Program {
     name = "Coffee";
     volume = 0.4;
     temperature = 90;
-    System.out.println(hotList.getProduct(name, volume, temperature).toString());
+    System.out.println(list.getProduct(name, volume, temperature).toString());
 
     name = "Tea";
     volume = 1.2;
     temperature = 85;
-    System.out.println(hotList.getProduct(name, volume, temperature).toString());
+    System.out.println(list.getProduct(name, volume, temperature).toString());
 
   }
 }
