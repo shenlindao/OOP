@@ -8,7 +8,6 @@ public abstract class Product {
   private int price;
   private int quantity;
   private GregorianCalendar bestBefore;
-  // int [] storage;
 
   public Product(String name, int price, int quantity, GregorianCalendar bestBefore) {
     this.name = name;

@@ -5,7 +5,6 @@ package Seminar.Seminar_01;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import Seminar.Seminar_02.Ex_02.Order;
 
 public class Automat {
@@ -26,6 +25,13 @@ public class Automat {
   }
 
   public Order createOrder(List<Product> myList) {
-    return null;
+    List<Product> createList = new ArrayList<>();
+    for (Product el : myList) {
+      if (el.getQuantity() > 0) {
+        createList.add(el);
+        myList = createList;
+      }
+    }
+    return new Order();
   }
 }
