@@ -50,8 +50,7 @@ public abstract class Product {
 
   @Override
   public String toString() {
-    return "PRODUCT"
-        + "\nname: " + getName()
+    return "\nname: " + getName()
         + "\nprice: " + getPrice()
         + "\nquantity: " + getQuantity()
         + "\nbestBefore: " + getBestBefore().get(GregorianCalendar.YEAR) + "/"

@@ -1,6 +1,6 @@
 package Seminar.Seminar_01;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class HotBeverageAutomat extends Automat {
 
@@ -9,7 +9,7 @@ public class HotBeverageAutomat extends Automat {
     }
 
     @Override
-    public void initProduct(List<Product> myList) {
+    public void initProduct(ArrayList<Product> myList) {
         super.initProduct(myList);
     }
 

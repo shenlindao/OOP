@@ -1,17 +1,16 @@
-// Реализуйте класс Товар, содержащий данные о товаре, и ТорговыйАвтомат,
-// содержащий в себе методы initProducts (List <Product>) сохраняющий в себе список исходных продуктов и getProduct(String name)
-
 package Seminar.Seminar_01;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+
 import Seminar.Seminar_02.Ex_02.Order;
+import Seminar.Seminar_02.Ex_02.Human;
 
 public class Automat {
 
-  List<Product> listProduct = new ArrayList<>();
+  ArrayList<Product> listProduct = new ArrayList<>();
 
-  public void initProduct(List<Product> myList) {
+  public void initProduct(ArrayList<Product> myList) {
     listProduct = myList;
   }
 
@@ -24,14 +23,21 @@ public class Automat {
     return null;
   }
 
-  public Order createOrder(List<Product> myList) {
-    List<Product> createList = new ArrayList<>();
-    for (Product el : myList) {
-      if (el.getQuantity() > 0) {
-        createList.add(el);
-        myList = createList;
+  public Order createOrder(ArrayList<Product> shoppingList, Human human) {
+    int sum = 0;
+    Iterator<Product> iterator = shoppingList.iterator();
+    while (iterator.hasNext()) {
+      Product el = iterator.next();
+      if (getProduct(el.getName()).getQuantity() > 0) {
+        sum += getProduct(el.getName()).getPrice();
+      } else {
+        iterator.remove();
       }
     }
-    return new Order();
+    Order order = new Order();
+    order.setCost(sum);
+    order.setProducts(shoppingList);
+    order.setMan(human);
+    return order;
   }
 }

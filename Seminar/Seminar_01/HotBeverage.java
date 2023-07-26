@@ -22,8 +22,7 @@ public class HotBeverage extends Beverage {
 
     @Override
     public String toString() {
-        return "PRODUCT"
-                + "\nname: " + getName()
+        return "\nname: " + getName()
                 + "\nvolume: " + getVolume()
                 + "\ntemperature: " + getTemperature()
                 + "\nprice: " + getPrice()

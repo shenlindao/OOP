@@ -21,8 +21,7 @@ public class Beverage extends Product {
 
   @Override
   public String toString() {
-    return "PRODUCT"
-        + "\nname: " + getName()
+    return "\nname: " + getName()
         + "\nvolume: " + getVolume()
         + "\nprice: " + getPrice()
         + "\nquantity: " + getQuantity()
