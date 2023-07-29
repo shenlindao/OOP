@@ -1,21 +1,27 @@
 package Seminar.Seminar_01;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.GregorianCalendar;
 import Seminar.Seminar_02.Ex_02.Human;
 import Seminar.Seminar_02.Ex_02.Order;
+import Seminar.Seminar_03.Ex_01.StudentNameComparator;
 
 public class Program {
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws IOException, InterruptedException {
+    new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
 
-    Product product1 = new Food("Twix", 1.6, 80, 0, new GregorianCalendar(2023, 10, 10, 0, 0));
-    Product product2 = new Food("Mars", 1.8, 90, 0, new GregorianCalendar(2023, 10, 19, 0, 0));
-    Product product3 = new Food("Snicers", 2.5, 60, 15, new GregorianCalendar(2023, 10, 29, 0, 0));
-    Product product4 = new Beverage("Coca-Cola", 0.3, 100, 1, new GregorianCalendar(2023, 11, 05, 0, 0));
-    Product product5 = new Beverage("Fanta", 0.5, 110, 5, new GregorianCalendar(2023, 12, 07, 0, 0));
-    Product product6 = new HotBeverage("Coffee", 0.4, 90, 200, 20, new GregorianCalendar(2023, 8, 01, 0, 0));
-    Product product7 = new HotBeverage("Tea", 1.2, 85, 500, 1, new GregorianCalendar(2023, 8, 01, 0, 0));
+    Product product1 = new Food("Twix", 1.6, 880, 0, new GregorianCalendar(2023, 10, 10));
+    Product product2 = new Food("Mars", 2.5, 90, 0, new GregorianCalendar(2023, 10, 19));
+    Product product3 = new Food("Snicers", 2.9, 60, 15, new GregorianCalendar(2023, 10, 29));
+    Product product4 = new Beverage("Coca-Cola", 0.3, 100, 1, new GregorianCalendar(2023, 11, 5));
+    Product product5 = new Beverage("Fanta", 0.5, 110, 5, new GregorianCalendar(2023, 12, 7));
+    Product product6 = new HotBeverage("Coffee", 0.4, 90, 200, 20, new GregorianCalendar(2023, 8, 14));
+    Product product7 = new HotBeverage("Tea", 1.2, 85, 500, 1, new GregorianCalendar(2023, 8, 18));
 
     Automat automat = new Automat();
     ArrayList<Product> productList = new ArrayList<>();
@@ -29,44 +35,64 @@ public class Program {
     productList.add(product7);
     automat.initProduct(productList);
 
-    // String name;
-    // double volume;
-    // int temperature;
+    /*
+     * String name;
+     * double volume;
+     * int temperature;
+     * 
+     * name = "Mars";
+     * System.out.println(list.getProduct(name).toString());
+     * 
+     * name = "Twix";
+     * System.out.println(list.getProduct(name).toString());
+     * 
+     * name = "Coca-Cola";
+     * System.out.println(list.getProduct(name).toString());
+     * 
+     * name = "Fanta";
+     * System.out.println(list.getProduct(name).toString());
+     * 
+     * name = "Coffee";
+     * volume = 0.4;
+     * temperature = 90;
+     * System.out.println(list.getProduct(name, volume, temperature).toString());
+     * 
+     * name = "Tea";
+     * volume = 1.2;
+     * temperature = 85;
+     * System.out.println(list.getProduct(name, volume, temperature).toString());
+     * 
+     */
 
-    // name = "Mars";
-    // System.out.println(list.getProduct(name).toString());
+    /* 
+     * Human Ivan = new Human("Ivan", true, true, 500);
+     * Ivan.setNearestAutomat(automat);
+     * 
+     * ArrayList<String> desiredProducts = new ArrayList<>();
+     * desiredProducts.add("Twix");
+     * desiredProducts.add("Coca-Cola");
+     * desiredProducts.add("Fanta");
+     * desiredProducts.add("Tea");
+     * System.out.println(desiredProducts);
+     * 
+     * Order order = Ivan.makeOrder(desiredProducts);
+     * System.out.println(order);
+     */
 
-    // name = "Twix";
-    // System.out.println(list.getProduct(name).toString());
+    // Comparator<Product> productComparator = new ProductComparator();
+    // productList.sort(productComparator);
+    // System.out.println(productList);
 
-    // name = "Coca-Cola";
-    // System.out.println(list.getProduct(name).toString());
+    // Comparator<Product> foodComparator = new FoodComparator();
+    // productList.sort(foodComparator);
+    // System.out.println(productList);
 
-    // name = "Fanta";
-    // System.out.println(list.getProduct(name).toString());
+    // Comparator<Product> beverageComparator = new BeverageComparator();
+    // productList.sort(beverageComparator);
+    // System.out.println(productList);
 
-    // name = "Coffee";
-    // volume = 0.4;
-    // temperature = 90;
-    // System.out.println(list.getProduct(name, volume, temperature).toString());
-
-    // name = "Tea";
-    // volume = 1.2;
-    // temperature = 85;
-    // System.out.println(list.getProduct(name, volume, temperature).toString());
-
-    Human Ivan = new Human("Ivan", true, true, 500);
-    Ivan.setNearestAutomat(automat);
-
-    ArrayList<String> desiredProducts = new ArrayList<>();
-    desiredProducts.add("Twix");
-    desiredProducts.add("Coca-Cola");
-    desiredProducts.add("Fanta");
-    desiredProducts.add("Tea");
-    System.out.println(desiredProducts);
-
-
-    Order order = Ivan.makeOrder(desiredProducts);
-    System.out.println(order);
+    Comparator<Product> hotBeverageComparator = new HotBeverageComparator();
+    productList.sort(hotBeverageComparator.reversed());
+    System.out.println(productList);
   }
 }

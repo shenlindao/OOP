@@ -11,7 +11,7 @@ public class Food extends Product {
     this.weight = weight;
   }
 
-  public double getWeight() {
+  public Double getWeight() {
     return weight;
   }
 

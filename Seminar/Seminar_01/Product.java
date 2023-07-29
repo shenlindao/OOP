@@ -57,5 +57,4 @@ public abstract class Product {
         + getBestBefore().get(GregorianCalendar.MONTH) + "/"
         + getBestBefore().get(GregorianCalendar.DATE) + "\n";
   }
-
 }
