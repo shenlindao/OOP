@@ -72,7 +72,7 @@ public class Interface {
     private static void partOfMenu(ArrayList<Product> productList, Automat automat, Scanner scanner)
             throws IOException, InterruptedException {
         System.out.println(productList);
-        System.out.println("1 - create order");
+        System.out.println("\n1 - create order");
         System.out.println("2 - return to main menu");
         System.out.println("else key - exit program");
         System.out.println();
@@ -134,7 +134,7 @@ public class Interface {
         int i = 0;
         for (Product product : productList) {
             i++;
-            System.out.println(i + " - " + product.getName());
+            System.out.println(i + " - " + product.getName() + " (" + product.getQuantity() + " pieces)");
         }
         System.out.println("\nSelect the number of product: ");
         int choiseNumer = Integer.parseInt(scanner.nextLine());
@@ -157,9 +157,12 @@ public class Interface {
     private static void makeDesireList(ArrayList<Product> productList, HashMap<String, Integer> desiredProducts,
             Automat automat, Scanner scanner)
             throws IOException, InterruptedException {
+        System.out.println("\nYour wish list:");
+        System.out.println(desiredProducts + "\n");
         System.out.println("\nDo you want something else?");
         System.out.println("1 - yes");
-        System.out.println("2 - no");
+        System.out.println("2 - make order");
+        System.out.println("else key - exit program");
         int menuChoise = Integer.parseInt(scanner.nextLine());
         switch (menuChoise) {
             case 1:
@@ -192,5 +195,6 @@ public class Interface {
             default:
                 break;
         }
+        scanner.close();
     }
 }
