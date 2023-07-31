@@ -1,6 +1,9 @@
 package Seminar.Seminar_02.Ex_02;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import Seminar.Seminar_01.Product;
 
@@ -36,10 +39,16 @@ public class Order {
 
     @Override
     public String toString() {
-        return "ORDER"
-                + "\n\ncustomer name: " + human.getName()
-                + "\n\nproducts: \n" + getProducts()
-                + "\n\npurchase sum: " + getCost() + "\n";
+        HashMap<String, Integer> listOfProducts = new HashMap<>();
+        for (Map.Entry<Product, Integer> el : products.entrySet()) {
+            String prod = el.getKey().getName();
+            Integer amount = el.getValue();
+            listOfProducts.put(prod, amount);
+        };
+        return "\nORDER"
+                + "\n\ncustomer name:\n" + human.getName()
+                + "\n\nproducts:\n" + listOfProducts
+                + "\n\npurchase sum:\n" + getCost() + "\n";
     }
 
 }
