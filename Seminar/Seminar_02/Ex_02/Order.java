@@ -1,18 +1,20 @@
 package Seminar.Seminar_02.Ex_02;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+
 import Seminar.Seminar_01.Product;
 
 public class Order {
-    private ArrayList<Product> products;
+
+    private HashMap<Product, Integer> products;
     private Human human;
     private int cost;
 
-    public ArrayList<Product> getProducts() {
+    public HashMap<Product, Integer> getProducts() {
         return products;
     }
 
-    public void setProducts(ArrayList<Product> products) {
+    public void setProducts(HashMap<Product, Integer> products) {
         this.products = products;
     }
 
@@ -35,9 +37,9 @@ public class Order {
     @Override
     public String toString() {
         return "ORDER"
-                + "\ncustomer name: " + human.getName()
-                + "\nproducts: \n" + getProducts()
-                + "\npurchase sum: " + getCost();
+                + "\n\ncustomer name: " + human.getName()
+                + "\n\nproducts: \n" + getProducts()
+                + "\n\npurchase sum: " + getCost() + "\n";
     }
 
 }

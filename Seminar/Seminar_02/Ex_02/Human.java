@@ -1,6 +1,8 @@
 package Seminar.Seminar_02.Ex_02;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import Seminar.Seminar_01.Automat;
 import Seminar.Seminar_01.Product;
 
@@ -47,17 +49,20 @@ public class Human extends Actor {
     }
 
     @Override
-    public Order makeOrder(ArrayList<String> desiredList) {
-        ArrayList<Product> shoppingList = new ArrayList<>();
-        Product shoppingProduct;
-        for (String nameProduct : desiredList) {
-            shoppingProduct = nearestAutomat.getProduct(nameProduct);
-            if (shoppingProduct != null) {
-                shoppingList.add(shoppingProduct);
+    public Order makeOrder(HashMap<String, Integer> desiredList) {
+        HashMap<Product, Integer> shoppingList = new HashMap<>();
+        Product product;
+        int quantity;
+        for (Map.Entry<String, Integer> el : desiredList.entrySet()) {
+            product = nearestAutomat.getProduct(el.getKey());
+            quantity = el.getValue();
+            if (product != null) {
+                shoppingList.put(product, quantity);
             }
         }
         setMake_order(true);
-        return nearestAutomat.createOrder(shoppingList, this);
+        HashMap<Product, Integer> orderList = nearestAutomat.validateOrder(shoppingList);
+        return nearestAutomat.createOrder(orderList, this);
     }
 
     @Override

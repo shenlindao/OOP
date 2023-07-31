@@ -1,6 +1,6 @@
 package Seminar.Seminar_02.Ex_02;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public interface ActorBehavoir {
     void setMake_order(boolean b);
@@ -11,5 +11,5 @@ public interface ActorBehavoir {
 
     boolean getTook_order();
 
-    Order makeOrder(ArrayList<String> desiredList);
+    Order makeOrder(HashMap<String, Integer> desiredList);
 }
