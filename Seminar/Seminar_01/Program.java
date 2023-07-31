@@ -5,15 +5,18 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
+import java.util.Scanner;
+import Seminar.Seminar_01.Interface;
 import Seminar.Seminar_02.Ex_02.Human;
 import Seminar.Seminar_02.Ex_02.Order;
 import Seminar.Seminar_03.Ex_01.StudentNameComparator;
 
 public class Program {
 
-  public static void main(String[] args) throws IOException, InterruptedException {
+  public static void main(String[] args) throws IOException, InterruptedException{
     new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-
+    Scanner scanner = new Scanner(System.in);
+    
     Product product1 = new Food("Twix", 1.6, 880, 0, new GregorianCalendar(2023, 10, 10));
     Product product2 = new Food("Mars", 2.5, 90, 0, new GregorianCalendar(2023, 10, 19));
     Product product3 = new Food("Snicers", 2.9, 60, 15, new GregorianCalendar(2023, 10, 29));
@@ -34,49 +37,55 @@ public class Program {
     productList.add(product7);
     automat.initProduct(productList);
 
+    try {
+      Interface.mainMenu(productList, scanner);
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+
     /*
-    String name;
-    double volume;
-    int temperature;
-    
-    name = "Mars";
-    System.out.println(list.getProduct(name).toString());
-    
-    name = "Twix";
-    System.out.println(list.getProduct(name).toString());
-    
-    name = "Coca-Cola";
-    System.out.println(list.getProduct(name).toString());
-    
-    name = "Fanta";
-    System.out.println(list.getProduct(name).toString());
-    
-    name = "Coffee";
-    volume = 0.4;
-    temperature = 90;
-    System.out.println(list.getProduct(name, volume, temperature).toString());
-    
-    name = "Tea";
-    volume = 1.2;
-    temperature = 85;
-    System.out.println(list.getProduct(name, volume, temperature).toString());
-    
+     * String name;
+     * double volume;
+     * int temperature;
+     * 
+     * name = "Mars";
+     * System.out.println(list.getProduct(name).toString());
+     * 
+     * name = "Twix";
+     * System.out.println(list.getProduct(name).toString());
+     * 
+     * name = "Coca-Cola";
+     * System.out.println(list.getProduct(name).toString());
+     * 
+     * name = "Fanta";
+     * System.out.println(list.getProduct(name).toString());
+     * 
+     * name = "Coffee";
+     * volume = 0.4;
+     * temperature = 90;
+     * System.out.println(list.getProduct(name, volume, temperature).toString());
+     * 
+     * name = "Tea";
+     * volume = 1.2;
+     * temperature = 85;
+     * System.out.println(list.getProduct(name, volume, temperature).toString());
+     * 
      */
 
-    
-    Human Ivan = new Human("Ivan", false, false, 500);
-    Ivan.setNearestAutomat(automat);
-    
-    HashMap<String, Integer> desiredProducts = new HashMap<>();
-    desiredProducts.put("Twix", 2);
-    desiredProducts.put("Coca-Cola", 5);
-    desiredProducts.put("Fanta", 3);
-    desiredProducts.put("Tea", 10);
-    System.out.println(desiredProducts);
-    
+    // Human Ivan = new Human("Ivan", false, false, 500);
+    // Ivan.setNearestAutomat(automat);
+
+    // HashMap<String, Integer> desiredProducts = new HashMap<>();
+    // desiredProducts.put("Twix", 2);
+    // desiredProducts.put("Coca-Cola", 5);
+    // desiredProducts.put("Fanta", 3);
+    // desiredProducts.put("Tea", 10);
+    // System.out.println(desiredProducts);
+
     // Order order = Ivan.makeOrder(desiredProducts);
     // System.out.println(order);
-    
 
     // Comparator<Product> productComparator = new ProductComparator();
     // productList.sort(productComparator);
