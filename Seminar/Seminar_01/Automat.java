@@ -1,7 +1,9 @@
 package Seminar.Seminar_01;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import Seminar.Seminar_02.Ex_02.Order;
 import Seminar.Seminar_02.Ex_02.Human;
@@ -23,20 +25,38 @@ public class Automat {
     return null;
   }
 
-  public Order createOrder(ArrayList<Product> shoppingList, Human human) {
-    int sum = 0;
-    Iterator<Product> iterator = shoppingList.iterator();
+  public HashMap<Product, Integer> validateOrder(HashMap<Product, Integer> shoppingList) {
+    HashMap<Product, Integer> orderList = new HashMap<>();
+    Iterator<Map.Entry<Product, Integer>> iterator = shoppingList.entrySet().iterator();
+    iterator.hasNext();
     while (iterator.hasNext()) {
-      Product el = iterator.next();
-      if (getProduct(el.getName()).getQuantity() > 0) {
-        sum += getProduct(el.getName()).getPrice();
+      Map.Entry<Product, Integer> el = iterator.next();
+      Product prod = el.getKey();
+      Integer amount = el.getValue();
+      if (amount <= getProduct(prod.getName()).getQuantity()) {
+        orderList.put(prod, amount);
+      }
+    }
+    return orderList;
+  }
+
+  public Order createOrder(HashMap<Product, Integer> orderList, Human human) {
+    Order order = new Order();
+    int sum = 0;
+    Iterator<Map.Entry<Product, Integer>> iterator = orderList.entrySet().iterator();
+    iterator.hasNext();
+    while (iterator.hasNext()) {
+      Map.Entry<Product, Integer> el = iterator.next();
+      Product prod = el.getKey();
+      Integer amount = el.getValue();
+      if (getProduct(prod.getName()).getQuantity() > 0) {
+        sum = sum + ((getProduct(prod.getName()).getPrice()) * amount);
       } else {
         iterator.remove();
       }
     }
-    Order order = new Order();
     order.setCost(sum);
-    order.setProducts(shoppingList);
+    order.setProducts(orderList);
     order.setMan(human);
     return order;
   }
