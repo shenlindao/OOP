@@ -49,7 +49,7 @@ public class Human extends Actor {
     }
 
     @Override
-    public Order makeOrder(HashMap<String, Integer> desiredList) {
+    public Order<Product> makeOrder(HashMap<String, Integer> desiredList) {
         HashMap<Product, Integer> shoppingList = new HashMap<>();
         Product product;
         int quantity;
