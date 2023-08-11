@@ -59,7 +59,9 @@ public class Human extends Actor {
             if (product != null) {
                 shoppingList.put(product, quantity);
             }
+            System.out.println(shoppingList);
         }
+        
         setMake_order(true);
         HashMap<Product, Integer> orderList = nearestAutomat.validateOrder(shoppingList);
         return nearestAutomat.createOrder(orderList, this);

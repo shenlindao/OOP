@@ -11,13 +11,13 @@ public class Order<T extends Product> {
     private Human human;
     private int cost;
 
-    // public Order(HashMap<T, Integer> products, Human human, int cost) {
-    //     this.products = products;
-    //     this.human = human;
-    //     this.cost = cost;
-    // }
+    public Order(HashMap<T, Integer> products, Human human, int cost) {
+        this.products = products;
+        this.human = human;
+        this.cost = cost;
+    }
 
-    public HashMap<T, Integer> getTProducts() {
+    public HashMap<T, Integer> getProducts() {
         return products;
     }
 

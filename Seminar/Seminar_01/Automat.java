@@ -49,7 +49,6 @@ public class Automat {
   }
 
   public Order<Product> createOrder(HashMap<Product, Integer> orderList, Human human) {
-    Order<Product> order = new Order<Product>();
     int sum = 0;
     Iterator<Map.Entry<Product, Integer>> iterator = orderList.entrySet().iterator();
     iterator.hasNext();
@@ -63,6 +62,7 @@ public class Automat {
         iterator.remove();
       }
     }
+    Order<Product> order = new Order<>(orderList, human, sum);
     order.setCost(sum);
     order.setProducts(orderList);
     order.setMan(human);
