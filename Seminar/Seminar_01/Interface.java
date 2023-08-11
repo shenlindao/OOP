@@ -11,7 +11,7 @@ import Seminar.Seminar_02.Ex_02.Human;
 import Seminar.Seminar_02.Ex_02.Order;
 
 public class Interface {
-    public static void mainMenu(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    public static void mainMenu(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println("AUTOMAT");
@@ -25,13 +25,13 @@ public class Interface {
         int menuChoise = Integer.parseInt(scanner.nextLine());
         switch (menuChoise) {
             case 1:
-                showAllProducts(productList, automat, scanner);
+                showAllProducts(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             case 2:
-                orderCreating(productList, automat, scanner);
+                orderCreating(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             case 3:
-                addProducts(productList, automat, scanner);
+                addProducts(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             default:
                 break;
@@ -39,7 +39,7 @@ public class Interface {
         scanner.close();
     }
 
-    public static void addProducts(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    public static void addProducts(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println("ADD PRODUCTS\n");
@@ -59,7 +59,7 @@ public class Interface {
                 addBeverage(productList, automat, scanner);
                 break;
             case 3:
-                addHotBeverage(productList, automat, scanner);
+                addHotBeverage(HBproductList, HBautomat, scanner);
                 break;
             default:
                 break;
@@ -70,7 +70,7 @@ public class Interface {
     private static void addFood(ArrayList<Product> productList, Automat automat, Scanner scanner)
             throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-        System.out.println("ADD FOOD\n");
+        System.out.println("ADDING FOOD\n");
         System.out.println("Input the name of product: ");
         String name = scanner.nextLine();
         System.out.println("Input weight: ");
@@ -96,26 +96,68 @@ public class Interface {
         // System.out.println();
         // int menuChoise = Integer.parseInt(scanner.nextLine());
         // switch (menuChoise) {
-        //     case 1:
-        //         mainMenu(productList, automat, scanner);
-        //         break;
-        //     default:
-        //         break;
+        // case 1:
+        // mainMenu(productList, automat, scanner);
+        // break;
+        // default:
+        // break;
         // }
-        partOfMenu(productList, automat, scanner);
+        // partOfMenu(productList, automat, HBautomat, scanner);
     }
 
     private static void addBeverage(ArrayList<Product> productList, Automat automat, Scanner scanner)
             throws IOException, InterruptedException {
-
+        new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        System.out.println("ADDING BEVERAGE\n");
+        System.out.println("Input the name of product: ");
+        String name = scanner.nextLine();
+        System.out.println("Input volume: ");
+        double volume = scanner.nextDouble();
+        System.out.println("Input quantity: ");
+        int quantity = scanner.nextInt();
+        System.out.println("Input price: ");
+        int price = scanner.nextInt();
+        System.out.println("The best before date");
+        System.out.println("Input year: ");
+        int year = scanner.nextInt();
+        System.out.println("Input month: ");
+        int month = scanner.nextInt();
+        System.out.println("Input dayOfMonth: ");
+        int dayOfMonth = scanner.nextInt();
+        GregorianCalendar bestBefore = new GregorianCalendar(year, month, dayOfMonth);
+        Product newProduct = new Beverage(name, volume, price, quantity, bestBefore);
+        AutomatService service = new AutomatService();
+        service.restock(automat, newProduct);
     }
 
-    private static void addHotBeverage(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    private static void addHotBeverage(ArrayList<Product> HBproductList, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
-
+        System.out.println("ADDING HOT BEVERAGE\n");
+        System.out.println("Input the name of product: ");
+        String name = scanner.nextLine();
+        System.out.println("Input volume: ");
+        double volume = scanner.nextDouble();
+        System.out.println("Input temperature: ");
+        int temperature = scanner.nextInt();
+        System.out.println("Input quantity: ");
+        int quantity = scanner.nextInt();
+        System.out.println("Input price: ");
+        int price = scanner.nextInt();
+        System.out.println("The best before date");
+        System.out.println("Input year: ");
+        int year = scanner.nextInt();
+        System.out.println("Input month: ");
+        int month = scanner.nextInt();
+        System.out.println("Input dayOfMonth: ");
+        int dayOfMonth = scanner.nextInt();
+        GregorianCalendar bestBefore = new GregorianCalendar(year, month, dayOfMonth);
+        Product newProduct = new HotBeverage(name, volume, temperature, price, quantity, bestBefore);
+        AutomatService service = new AutomatService();
+        service.restock(HBautomat, newProduct);
+        System.out.println(HBproductList);
     }
 
-    public static void showAllProducts(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    public static void showAllProducts(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println("PRODUCT LIST\n");
@@ -130,19 +172,19 @@ public class Interface {
         int menuChoise = Integer.parseInt(scanner.nextLine());
         switch (menuChoise) {
             case 1:
-                filterByName(productList, automat, scanner);
+                filterByName(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             case 2:
-                filterByWeight(productList, automat, scanner);
+                filterByWeight(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             case 3:
-                filterByVolume(productList, automat, scanner);
+                filterByVolume(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             case 4:
-                filterByTemperature(productList, automat, scanner);
+                filterByTemperature(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             case 5:
-                mainMenu(productList, automat, scanner);
+                mainMenu(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             default:
                 break;
@@ -150,7 +192,7 @@ public class Interface {
         scanner.close();
     }
 
-    private static void partOfMenu(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    private static void partOfMenu(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         System.out.println(productList);
         System.out.println("\n1 - create order");
@@ -160,10 +202,10 @@ public class Interface {
         int menuChoise = Integer.parseInt(scanner.nextLine());
         switch (menuChoise) {
             case 1:
-                orderCreating(productList, automat, scanner);
+                orderCreating(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             case 2:
-                mainMenu(productList, automat, scanner);
+                mainMenu(productList, HBproductList, automat, HBautomat, scanner);
                 break;
             default:
                 break;
@@ -171,39 +213,39 @@ public class Interface {
         scanner.close();
     }
 
-    public static void filterByName(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    public static void filterByName(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         Comparator<Product> productComparator = new ProductComparator();
         productList.sort(productComparator);
         System.out.println("PRODUCT LIST fitred by name\n\n");
-        partOfMenu(productList, automat, scanner);
+        partOfMenu(productList, HBproductList, automat, HBautomat, scanner);
     }
 
-    public static void filterByWeight(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    public static void filterByWeight(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         Comparator<Product> foodComparator = new FoodComparator();
         productList.sort(foodComparator);
         System.out.println("PRODUCT LIST fitred by weight\n\n");
-        partOfMenu(productList, automat, scanner);
+        partOfMenu(productList, HBproductList, automat, HBautomat, scanner);
     }
 
-    public static void filterByVolume(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    public static void filterByVolume(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         Comparator<Product> beverageComparator = new BeverageComparator();
         productList.sort(beverageComparator);
         System.out.println("PRODUCT LIST fitred by volume\n\n");
-        partOfMenu(productList, automat, scanner);
+        partOfMenu(productList, HBproductList, automat, HBautomat, scanner);
     }
 
-    public static void filterByTemperature(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    public static void filterByTemperature(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         Comparator<Product> hotBeverageComparator = new HotBeverageComparator();
         productList.sort(hotBeverageComparator.reversed());
         System.out.println("PRODUCT LIST fitred by temperature\n\n");
-        partOfMenu(productList, automat, scanner);
+        partOfMenu(productList, HBproductList, automat, HBautomat, scanner);
     }
 
-    public static void orderCreating(ArrayList<Product> productList, Automat automat, Scanner scanner)
+    public static void orderCreating(ArrayList<Product> productList, ArrayList<Product> HBproductList, Automat automat, HotBeverageAutomat HBautomat, Scanner scanner)
             throws IOException, InterruptedException {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         System.out.println("Input your name: ");
@@ -217,21 +259,33 @@ public class Interface {
             i++;
             System.out.println(i + " - " + product.getName() + " (" + product.getQuantity() + " pieces)");
         }
+        for (Product product : HBproductList) {
+            i++;
+            System.out.println(i + " - " + product.getName() + " (" + product.getQuantity() + " pieces)");
+        }
         System.out.println("\nSelect the number of product: ");
         int choiseNumer = Integer.parseInt(scanner.nextLine());
         System.out.println("Input the quantity you need: ");
         int choiseAmount = Integer.parseInt(scanner.nextLine());
-        i = 0;
+        int j = 0;
         for (Product product : productList) {
-            i++;
-            if (choiseNumer == i) {
+            j++;
+            if (choiseNumer == j) {
+                String choiseName = product.getName();
+                desiredProducts.put(choiseName, choiseAmount);
+            }
+        }
+        int k = 0;
+        for (Product product : HBproductList) {
+            k++;
+            if (choiseNumer == k) {
                 String choiseName = product.getName();
                 desiredProducts.put(choiseName, choiseAmount);
             }
         }
         makeDesireList(productList, desiredProducts, automat, scanner);
 
-        Order order = human.makeOrder(desiredProducts);
+        Order<Product> order = human.makeOrder(desiredProducts);
         System.out.println(order);
     }
 

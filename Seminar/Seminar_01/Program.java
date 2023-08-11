@@ -27,12 +27,15 @@ public class Program {
     productList.add(product3);
     productList.add(product4);
     productList.add(product5);
-    productList.add(product6);
-    productList.add(product7);
-    automat.initProduct(productList);
+
+    HotBeverageAutomat HBautomat = new HotBeverageAutomat();
+    ArrayList<Product> HBproductList = new ArrayList<>();
+    HBproductList.add(product6);
+    HBproductList.add(product7);
+    HBautomat.initProduct(HBproductList);
 
     try {
-      Interface.mainMenu(productList, automat, scanner);
+      Interface.mainMenu(productList, HBproductList, automat, HBautomat, scanner);
     } catch (IOException e) {
       e.printStackTrace();
     } catch (InterruptedException e) {
