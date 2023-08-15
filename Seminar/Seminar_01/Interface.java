@@ -92,7 +92,7 @@ public class Interface {
         Product newProduct = new Food(name, weight, price, quantity, bestBefore);
         AutomatService service = new AutomatService();
         service.restock(automat, newProduct);
-        System.out.println(productList);
+        // System.out.println(productList);
         // System.out.println("1 - return to main menu");
         // System.out.println("else key - exit program");
         // System.out.println();
@@ -104,7 +104,7 @@ public class Interface {
         //     default:
         //         break;
         // }
-        // partOfMenu(productList, HBproductList, automat, HBautomat, scanner);
+        partOfMenu(productList, HBproductList, automat, HBautomat, scanner);
     }
 
     private static void addBeverage(ArrayList<Product> productList, Automat automat, Scanner scanner)
@@ -260,7 +260,6 @@ public class Interface {
         System.out.println("Input your name: ");
         String name = scanner.nextLine();
         Human human = new Human(name, false, false, 1000);
-        human.setNearestAutomat(automat);
         HashMap<String, Integer> desiredProducts = new HashMap<>();
         System.out.println("\nChose a product: ");
         int i = 0;
@@ -293,8 +292,12 @@ public class Interface {
         }
         makeDesireList(productList, HBproductList, desiredProducts, automat, scanner);
 
+        human.setNearestAutomat(automat);
         Order<Product> order = human.makeOrder(desiredProducts);
+        human.setNearestAutomat(HBautomat);
+        Order<Product> HBorder = human.makeOrder(desiredProducts);
         System.out.println(order);
+        System.out.println(HBorder);
     }
 
     private static void makeDesireList(ArrayList<Product> productList, ArrayList<Product> HBproductList,
