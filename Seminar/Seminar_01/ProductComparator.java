@@ -12,11 +12,6 @@ public class ProductComparator implements Comparator<Product> {
         return result;
     }
 
-    // @Override
-    // public int compare(Product o1, Product o2) {
-    // return 0;
-    // }
-
     @Override
     public Comparator<Product> reversed() {
         return Comparator.super.reversed();

@@ -2,6 +2,8 @@ package Seminar.Seminar_02.Ex_02;
 
 import java.util.HashMap;
 
+import Seminar.Seminar_01.Product;
+
 public interface ActorBehavoir {
     void setMake_order(boolean b);
 
@@ -11,5 +13,5 @@ public interface ActorBehavoir {
 
     boolean getTook_order();
 
-    Order makeOrder(HashMap<String, Integer> desiredList);
+    Order<Product> makeOrder(HashMap<String, Integer> desiredList);
 }

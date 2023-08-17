@@ -12,6 +12,14 @@ public class Automat {
 
   ArrayList<Product> listProduct = new ArrayList<>();
 
+  public ArrayList<Product> getListProduct() {
+    return listProduct;
+  }
+
+  public void setListProduct(ArrayList<Product> listProduct) {
+    this.listProduct = listProduct;
+  }
+
   public void initProduct(ArrayList<Product> myList) {
     listProduct = myList;
   }
@@ -40,8 +48,7 @@ public class Automat {
     return orderList;
   }
 
-  public Order createOrder(HashMap<Product, Integer> orderList, Human human) {
-    Order order = new Order();
+  public Order<Product> createOrder(HashMap<Product, Integer> orderList, Human human) {
     int sum = 0;
     Iterator<Map.Entry<Product, Integer>> iterator = orderList.entrySet().iterator();
     iterator.hasNext();
@@ -55,6 +62,7 @@ public class Automat {
         iterator.remove();
       }
     }
+    Order<Product> order = new Order<>(orderList, human, sum);
     order.setCost(sum);
     order.setProducts(orderList);
     order.setMan(human);
