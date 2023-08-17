@@ -2,9 +2,9 @@ package Seminar.Seminar_02.Ex_02;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import Seminar.Seminar_01.Product;
 
+// SRP, OCP
 public class Order<T extends Product> {
 
     private HashMap<T, Integer> products;

@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import Seminar.Seminar_01.Product;
 
+//ISP
 public interface ActorBehavoir {
     void setMake_order(boolean b);
 

@@ -2,6 +2,7 @@ package Seminar.Seminar_01;
 
 import java.util.Comparator;
 
+// SRP, OCP
 public class ProductComparator implements Comparator<Product> {
 
     public int compare(Product o1, Product o2) {

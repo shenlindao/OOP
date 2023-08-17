@@ -6,6 +6,7 @@ import java.util.Map;
 import Seminar.Seminar_01.Automat;
 import Seminar.Seminar_01.Product;
 
+// SRP, OCP
 public class Human extends Actor {
 
     private double money;

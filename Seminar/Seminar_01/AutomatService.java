@@ -2,6 +2,7 @@ package Seminar.Seminar_01;
 
 import java.util.ArrayList;
 
+//ISP
 public class AutomatService implements Service<Automat, Product> {
 
     @Override

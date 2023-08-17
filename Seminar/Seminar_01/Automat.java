@@ -8,6 +8,7 @@ import java.util.Map;
 import Seminar.Seminar_02.Ex_02.Order;
 import Seminar.Seminar_02.Ex_02.Human;
 
+// OCP
 public class Automat {
 
   ArrayList<Product> listProduct = new ArrayList<>();

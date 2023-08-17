@@ -1,5 +1,6 @@
 package Seminar.Seminar_01;
 
+// SRP, OCP
 public class FoodComparator extends ProductComparator {
 
     public int compare(Food o1, Food o2) {

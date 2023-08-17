@@ -2,6 +2,7 @@ package Seminar.Seminar_01;
 
 import java.util.GregorianCalendar;
 
+// SRP, OCP
 public class HotBeverage extends Beverage {
 
     private int temperature;

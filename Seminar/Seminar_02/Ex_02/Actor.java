@@ -1,5 +1,6 @@
 package Seminar.Seminar_02.Ex_02;
 
+// SRP, OCP
 public abstract class Actor implements ActorBehavoir {
 
     private String name;

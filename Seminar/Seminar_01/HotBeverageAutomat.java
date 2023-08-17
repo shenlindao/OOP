@@ -2,6 +2,7 @@ package Seminar.Seminar_01;
 
 import java.util.ArrayList;
 
+// SRP, OCP
 public class HotBeverageAutomat extends Automat {
 
     public HotBeverageAutomat() {
